@@ -1,4 +1,14 @@
 {
   "name": "@nfalcone/hover-fetch",
-  "version": "0.1.0"
+  "version": "0.1.0-test8",
+  "description": "Prefetch links on hover",
+  "license": "Apache-2.0",
+  "repository": "nickFalcone/hover-fetch",
+  "main": "index.js",
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
