@@ -9,7 +9,7 @@ module.exports = function hoverFetch(anchor) {
    * @return {undefined}
    */
   function prefetch(mouseEvent) {
-    // check that we have a same-origin link and a document.head
+    // check that we have document.head
     if (mouseEvent.target.tagName !== 'A') return;
     if (!document.head) return;
     // if (mouseEvent.target.origin !== location.origin) return;
