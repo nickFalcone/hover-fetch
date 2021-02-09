@@ -1,5 +1,5 @@
 # [@nickFalcone/hover-fetch](https://www.npmjs.com/package/@nfalcone/hover-fetch)
-![npm](https://img.shields.io/npm/v/@nfalcone/hover-fetch)
+<a href="https://www.npmjs.com/package/@nfalcone/hover-fetch">![npm](https://img.shields.io/npm/v/@nfalcone/hover-fetch)</a>
 
 ## Motivation
 
@@ -41,7 +41,6 @@ const hoverFetch = require('@nfalcone/hover-fetch');
 
 const anchor = document.querySelector('.link-to-prefetch');
 hoverFetch(anchor); // will initiate a prefetch request when `anchor` is hovered
-// Additional anchors, or all anchors, could be added if desired.
 ```
 
 See [a working example](http://hover-fetch.surge.sh/) based on [nickFalcone/test-hover-fetch](https://github.com/nickFalcone/test-hover-fetch).
