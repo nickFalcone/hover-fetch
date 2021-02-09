@@ -9,10 +9,8 @@ module.exports = function hoverFetch(anchor) {
    * @return {undefined}
    */
   function prefetch(mouseEvent) {
-    // check that we have document.head
     if (mouseEvent.target.tagName !== 'A') return;
     if (!document.head) return;
-    // if (mouseEvent.target.origin !== location.origin) return;
 
     const stripUrlFragment = (url) => url.split('#')[0];
     // do not prefetch links to the current page
@@ -22,12 +20,18 @@ module.exports = function hoverFetch(anchor) {
     )
       return;
 
+    if (prefetchedLinks.includes(mouseEvent.target.href)) return;
+
     const link = document.createElement('link');
     link.rel = 'prefetch';
     link.href = mouseEvent.target.href;
     link.as = 'document';
+
     document.head.appendChild(link);
+    prefetchedLinks.push(link.href);
   }
+
+  const prefetchedLinks = [];
 
   anchor.addEventListener('mouseover', prefetch, {
     capture: true,
