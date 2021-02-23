@@ -18,12 +18,15 @@ describe('Initial prefetch state', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(0);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(
+            0,
+          );
         });
     },
     timeout,
   );
 });
+
 // FIXME: these tests are order dependent.
 // The state of existing link prefetch should be maintained separately.
 describe('Hover behavior', () => {
@@ -37,7 +40,9 @@ describe('Hover behavior', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(0);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(
+            0,
+          );
         });
     },
     timeout,
@@ -46,7 +51,7 @@ describe('Hover behavior', () => {
   // TODO: test malformed link e.g. <a href="a98f\sdfg\.7d9af">bad href</a>
 
   test(
-    'Hovering over one anchor should create one <link rel="prefetch"> with a matching href value.',
+    'Hovering over one valid anchor should create one <link rel="prefetch"> with a matching href value.',
     async () => {
       await page.waitForSelector('.stack-overflow');
       await page.hover('.stack-overflow');
@@ -55,7 +60,9 @@ describe('Hover behavior', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(1);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(
+            1,
+          );
           const link = headNode.querySelectorAll('link[rel="prefetch"]')[0];
           expect(link.rel).toBe('prefetch');
           expect(link.href).toBe('https://stackoverflow.com/');
@@ -89,7 +96,9 @@ describe('Hover behavior', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(3);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(
+            3,
+          );
 
           // SSL .com - most likely scenario
           const link1 = headNode.querySelectorAll('link[rel="prefetch"]')[0];
@@ -109,14 +118,43 @@ describe('Hover behavior', () => {
     },
     timeout,
   );
-  // TODO: test links with hashs
 
-  // TODO: test links with query strings, ensure params are preserved
+  test(
+    'Hovering over one valid anchor with URL parameters should create one <link rel="prefetch"> with a matching href value.',
+    async () => {
+      await page.waitForSelector('.query-string');
+      await page.hover('.query-string');
 
-  /** TODO: links with query strings that were previously prefetched
-   * without the query string should not be prefetched again
-   * http://example.com/ vs https://example.com/?abc=123&doremi=abc
-   *
-   * https://url.spec.whatwg.org/#relative-url-with-fragment-string
-   */
+      await page
+        .$eval('head', (head) => head.innerHTML)
+        .then((result) => {
+          const headNode = JSDOM.fragment(result);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(
+            4,
+          );
+          const link = headNode.querySelectorAll('link[rel="prefetch"]')[3];
+          expect(link.rel).toBe('prefetch');
+          expect(link.href).toBe('https://example.com/?abc=123&doremi=abc');
+        });
+    },
+    timeout,
+  );
+
+  test(
+    'Hovering over the base URL parameters should not create an additional prefetch.',
+    async () => {
+      await page.waitForSelector('.query-string-base');
+      await page.hover('.query-string-base');
+
+      await page
+        .$eval('head', (head) => head.innerHTML)
+        .then((result) => {
+          const headNode = JSDOM.fragment(result);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(
+            4,
+          );
+        });
+    },
+    timeout,
+  );
 });
