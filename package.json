@@ -6,10 +6,17 @@
   "repository": "nickFalcone/hover-fetch",
   "main": "index.js",
   "scripts": {
-    "test": "jest && npx tsc --allowJs --checkJs --noEmit --moduleResolution node --target ES6 index.js"
+    "clean": "rm stub/bundle.js -f",
+    "dev": "concurrently 'watchify stub/app.js -o stub/bundle.js' 'http-server ./stub --port=8081'",
+    "test": "concurrently 'npm run clean && browserify stub/app.js -o stub/bundle.js && http-server ./stub --port=8080' 'jest'",
+    "tsc-lint": "npx tsc --allowJs --checkJs --noEmit --moduleResolution node --target ES6 index.js",
+    "deploy": "browserify stub/app.js -o stub/bundle.js && surge stub/ --domain hover-fetch.surge.sh",
+    "publish": "npm run deploy && npm publish"
   },
   "keywords": [],
   "devDependencies": {
+    "browserify": "^17.0.0",
+    "concurrently": "^6.0.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -19,6 +26,7 @@
     "jsdom": "^16.4.0",
     "puppeteer": "^7.1.0",
     "surge": "^0.21.7",
-    "typescript": "^4.1.5"
+    "typescript": "^4.1.5",
+    "watchify": "^4.0.0"
   }
 }
