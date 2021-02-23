@@ -5,7 +5,7 @@ const { JSDOM } = jsdom;
 const timeout = 30000;
 
 beforeAll(async () => {
-  await page.goto('http://hover-fetch.surge.sh/', {
+  await page.goto('http://localhost:8080/', {
     waitUntil: 'networkidle2',
   });
 });
