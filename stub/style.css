@@ -5,3 +5,7 @@ a {
 a:hover {
   color: green;
 }
+
+.ciu_embed {
+  max-width: 768px;
+}

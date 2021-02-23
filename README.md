@@ -1,11 +1,17 @@
 # [@nickFalcone/hover-fetch](https://www.npmjs.com/package/@nfalcone/hover-fetch)
-<a href="https://www.npmjs.com/package/@nfalcone/hover-fetch">![npm](https://img.shields.io/npm/v/@nfalcone/hover-fetch)</a>
+[![NPM info](https://img.shields.io/npm/v/@nfalcone/hover-fetch)](https://app.netlify.com/sites/modest-gates-9e0182/deploys)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/966dddec-54e0-404c-9944-46fe2d4f90af/deploy-status)](https://app.netlify.com/sites/modest-gates-9e0182/deploys)
 
 __A programmatic, cross-browser, zero-dependency way to prefetch links.__
 
 > Link prefetching is a browser mechanism, which utilizes browser idle time to download or prefetch documents that the user might visit in the near future...
 > When the user visits one of the prefetched documents, it can be served up quickly out of the browser's cache.
---- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)
+&mdash; [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)
+
+## Supported browsers
+![link rel prefetch support](https://caniuse.bitsofco.de/image/link-rel-prefetch.jpg)
+
 ## Install
 
 ```bash
@@ -14,7 +20,6 @@ $ npm install @nfalcone/hover-fetch
 ## Use
 
 ```html
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -41,7 +46,7 @@ const anchor = document.querySelector('.link-to-prefetch');
 hoverFetch(anchor); // will initiate a prefetch request when `anchor` is hovered
 ```
 
-See a working example at https://hoverfetch.com/.
+See a working demo at https://hoverfetch.com/
 
 ## Develop
 

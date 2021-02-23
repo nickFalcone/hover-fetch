@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="hover fetch npm package" />
     <meta name="theme-color" content="#ffffff" />
     <link
@@ -22,13 +22,38 @@
       href="image/favicon-16x16.png"
       sizes="16x16"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Hover Fetch</title>
     <script async defer src="bundle.js"></script>
   </head>
   <body>
-    <h1>hover-fetch</h1>
-    <a href="https://www.npmjs.com/package/@nfalcone/hover-fetch"><img src="https://img.shields.io/npm/v/@nfalcone/hover-fetch" alt="npm"/></a>  
+    <h1>Hover Fetch</h1>
+    <a href="https://www.npmjs.com/package/@nfalcone/hover-fetch"
+      ><img src="https://img.shields.io/npm/v/@nfalcone/hover-fetch" alt="npm"
+    /></a>
+    <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"></script>
+    <p
+      class="ciu_embed"
+      data-feature="link-rel-prefetch"
+      data-periods="future_1,current,past_1,past_2"
+      data-accessible-colours="false"
+    >
+      <picture>
+        <source
+          type="image/webp"
+          srcset="https://caniuse.bitsofco.de/image/link-rel-prefetch.webp"
+        />
+        <source
+          type="image/png"
+          srcset="https://caniuse.bitsofco.de/image/link-rel-prefetch.png"
+        />
+        <img
+          src="https://caniuse.bitsofco.de/image/link-rel-prefetch.jpg"
+          alt="Data on support for the link-rel-prefetch feature across the major browsers from caniuse.com"
+        />
+      </picture>
+    </p>
+
     <ul class="list-of-links">
       <li>
         <a href="6a5f43" class="broken-link">Broken link</a>
@@ -49,10 +74,14 @@
         <a href="https://pi-hole.net/#foo" class="pi-hole">fragment URL</a>
       </li>
       <li>
-        <a href="https://example.com/?abc=123&doremi=abc" class="query-string">query string</a>
+        <a href="https://example.com/?abc=123&doremi=abc" class="query-string"
+          >query string</a
+        >
       </li>
       <li>
-        <a href="https://example.com/" class="query-string-base">query string base URL</a>
+        <a href="https://example.com/" class="query-string-base"
+          >query string base URL</a
+        >
       </li>
       <li>
         <a href="/" class="home">Home</a>
