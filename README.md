@@ -1,9 +1,7 @@
 # [@nickFalcone/hover-fetch](https://www.npmjs.com/package/@nfalcone/hover-fetch)
 <a href="https://www.npmjs.com/package/@nfalcone/hover-fetch">![npm](https://img.shields.io/npm/v/@nfalcone/hover-fetch)</a>
 
-## Motivation
-
-__A programmatic way to prefetch links.__
+__A programmatic, cross-browser, zero-dependency way to prefetch links.__
 
 > Link prefetching is a browser mechanism, which utilizes browser idle time to download or prefetch documents that the user might visit in the near future...
 > When the user visits one of the prefetched documents, it can be served up quickly out of the browser's cache.
@@ -43,10 +41,29 @@ const anchor = document.querySelector('.link-to-prefetch');
 hoverFetch(anchor); // will initiate a prefetch request when `anchor` is hovered
 ```
 
-See [a working example](http://hover-fetch.surge.sh/) based on [nickFalcone/test-hover-fetch](https://github.com/nickFalcone/test-hover-fetch).
+See a working example at https://hoverfetch.com/.
 
-<!-- TODO: ## Test
+## Develop
+
+### Setup
 
 ```bash
-$ npm run test
-``` -->
+$ git clone git@github.com:nickFalcone/hover-fetch.git
+
+$ npm install --save-dev
+```
+
+### Local build/watch
+
+```bash
+$ npm run dev # serves ./stub on port 8081
+```
+
+`stub/app.js` consumes `index.js` directly. 
+
+`stub/index.html` embeds `stub/bundle.js` (the browserify bundled file)
+### Test
+
+```bash
+$ npm run test # serves ./stub on port 8080 and runs Jest
+```
