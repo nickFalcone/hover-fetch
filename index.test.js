@@ -18,7 +18,7 @@ describe('Initial prefetch state', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link').length).toBe(0);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(0);
         });
     },
     timeout,
@@ -37,7 +37,7 @@ describe('Hover behavior', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link').length).toBe(0);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(0);
         });
     },
     timeout,
@@ -55,8 +55,8 @@ describe('Hover behavior', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link').length).toBe(1);
-          const link = headNode.querySelectorAll('link')[0];
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(1);
+          const link = headNode.querySelectorAll('link[rel="prefetch"]')[0];
           expect(link.rel).toBe('prefetch');
           expect(link.href).toBe('https://stackoverflow.com/');
         });
@@ -89,20 +89,20 @@ describe('Hover behavior', () => {
         .$eval('head', (head) => head.innerHTML)
         .then((result) => {
           const headNode = JSDOM.fragment(result);
-          expect(headNode.querySelectorAll('link').length).toBe(3);
+          expect(headNode.querySelectorAll('link[rel="prefetch"]').length).toBe(3);
 
           // SSL .com - most likely scenario
-          const link1 = headNode.querySelectorAll('link')[0];
+          const link1 = headNode.querySelectorAll('link[rel="prefetch"]')[0];
           expect(link1.rel).toBe('prefetch');
           expect(link1.href).toBe('https://stackoverflow.com/');
 
           // http .org - less common
-          const link2 = headNode.querySelectorAll('link')[1];
+          const link2 = headNode.querySelectorAll('link[rel="prefetch"]')[1];
           expect(link2.rel).toBe('prefetch');
           expect(link2.href).toBe('http://browserify.org/');
 
           // SSL .net ¯\_(ツ)_/¯
-          const link3 = headNode.querySelectorAll('link')[2];
+          const link3 = headNode.querySelectorAll('link[rel="prefetch"]')[2];
           expect(link3.rel).toBe('prefetch');
           expect(link3.href).toBe('https://pi-hole.net/');
         });
