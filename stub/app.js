@@ -18,7 +18,7 @@ addLink.addEventListener('click', () => {
 });
 
 // Links at build time
-const anchors = [...document.querySelectorAll('a')];
+const anchors = Array.prototype.slice.call(document.querySelectorAll('a'));
 
 // Initiate a prefetch request on hover
 anchors.forEach((anchor) => {

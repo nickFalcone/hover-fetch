@@ -21,7 +21,7 @@ module.exports = function hoverFetch(anchor) {
     )
       return;
 
-    if (prefetchedLinks.includes(mouseEvent.target.href)) return;
+    if (prefetchedLinks.indexOf(mouseEvent.target.href) >= 0) return;
 
     const link = document.createElement('link');
     link.rel = 'prefetch';
