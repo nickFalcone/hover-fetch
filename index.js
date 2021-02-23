@@ -1,4 +1,6 @@
 module.exports = function hoverFetch(anchor) {
+  if (!document.head) return;
+
   /**
    * Adds <link rel=prefetch> when a link is hovered over
    * https://web.dev/link-prefetch/#improve-navigations-with-relprefetch
@@ -10,7 +12,6 @@ module.exports = function hoverFetch(anchor) {
    */
   function prefetch(mouseEvent) {
     if (mouseEvent.target.tagName !== 'A') return;
-    if (!document.head) return;
 
     const stripUrlFragment = (url) => url.split('#')[0];
     // do not prefetch links to the current page
