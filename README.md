@@ -1,5 +1,5 @@
 # [@nickFalcone/hover-fetch](https://www.npmjs.com/package/@nfalcone/hover-fetch)
-[![NPM info](https://img.shields.io/npm/v/@nfalcone/hover-fetch)](https://app.netlify.com/sites/modest-gates-9e0182/deploys)
+[![NPM info](https://img.shields.io/npm/v/@nfalcone/hover-fetch)](https://www.npmjs.com/package/@nfalcone/hover-fetch)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/966dddec-54e0-404c-9944-46fe2d4f90af/deploy-status)](https://app.netlify.com/sites/modest-gates-9e0182/deploys)
 
