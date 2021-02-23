@@ -10,8 +10,7 @@
     "dev": "concurrently 'watchify stub/app.js -o stub/bundle.js' 'http-server ./stub --port=8081'",
     "test": "concurrently 'npm run clean && browserify stub/app.js -o stub/bundle.js && http-server ./stub --port=8080' 'jest'",
     "tsc-lint": "npx tsc --allowJs --checkJs --noEmit --moduleResolution node --target ES6 index.js",
-    "deploy": "browserify stub/app.js -o stub/bundle.js && surge stub/ --domain hover-fetch.surge.sh",
-    "publish": "npm run deploy && npm publish"
+    "publish": "npm run test && npm publish"
   },
   "keywords": [],
   "devDependencies": {
@@ -25,7 +24,6 @@
     "jest-puppeteer": "^4.4.0",
     "jsdom": "^16.4.0",
     "puppeteer": "^7.1.0",
-    "surge": "^0.21.7",
     "typescript": "^4.1.5",
     "watchify": "^4.0.0"
   }
