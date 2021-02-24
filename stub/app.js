@@ -1,21 +1,4 @@
-const hoverFetch = require('../index');
-
-const addLink = document.querySelector('#addLinks');
-const linkList = document.querySelector('.list-of-links');
-
-// Dynamically added links
-addLink.addEventListener('click', () => {
-  const listItem = document.createElement('li');
-  const textNode = document.createTextNode(
-    'a dynamically added link',
-  );
-  const anchor = document.createElement('a');
-  listItem.appendChild(textNode);
-  anchor.appendChild(listItem);
-  anchor.href = 'https://www.example.com/';
-
-  linkList.appendChild(anchor);
-});
+import hoverFetch from '../index';
 
 // Links at build time
 const anchors = Array.prototype.slice.call(document.querySelectorAll('a'));

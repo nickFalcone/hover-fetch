@@ -1,10 +1,10 @@
-module.exports = function hoverFetch(anchor) {
+export default function hoverFetch(anchor) {
   if (!document.head) return;
+  const prefetchedLinks = [];
 
   /**
    * Adds <link rel=prefetch> when a link is hovered over
    * https://web.dev/link-prefetch/#improve-navigations-with-relprefetch
-   * https://caniuse.com/link-rel-prefetch
    * Inspired by:
    * https://github.com/google/eleventy-high-performance-blog/blob/870557848f0032347b251440cdf6096821af557d/src/main.js#L66
    * @param {MouseEvent} - mouseEvent
@@ -31,8 +31,6 @@ module.exports = function hoverFetch(anchor) {
     document.head.appendChild(link);
     prefetchedLinks.push(link.href);
   }
-
-  const prefetchedLinks = [];
 
   anchor.addEventListener('mouseover', prefetch, {
     capture: true,

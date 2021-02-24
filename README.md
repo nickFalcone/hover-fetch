@@ -40,7 +40,7 @@ $ npm install @nfalcone/hover-fetch
 
 ```js
 // app.js
-const hoverFetch = require('@nfalcone/hover-fetch');
+import hoverFetch from '@nfalcone/hover-fetch';
 
 const anchor = document.querySelector('.link-to-prefetch');
 hoverFetch(anchor); // will initiate a prefetch request when `anchor` is hovered
