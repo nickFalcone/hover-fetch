@@ -9,6 +9,12 @@ __A programmatic, cross-browser, zero-dependency way to prefetch links.__
 > When the user visits one of the prefetched documents, it can be served up quickly out of the browser's cache.
 &mdash; [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)
 
+## Demo
+
+![demo video](video/hover-fetch.gif)
+
+Try the demo at https://hoverfetch.com/
+
 ## Supported browsers
 ![link rel prefetch support](https://caniuse.bitsofco.de/image/link-rel-prefetch.jpg)
 
@@ -45,8 +51,6 @@ import hoverFetch from '@nfalcone/hover-fetch';
 const anchor = document.querySelector('.link-to-prefetch');
 hoverFetch(anchor); // will initiate a prefetch request when `anchor` is hovered
 ```
-
-See a working demo at https://hoverfetch.com/
 
 ## Develop
 
